@@ -6,9 +6,41 @@
     <title>Document</title>
 
     <body>
+        <style>
+            .b{
+                color: white;
+                background-color: black;
+                font-weight: bold;
+                padding-left: 15px;
+                padding-right: 15px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                border-radius: 20px;   
+                border: none;
+                cursor: pointer;
+            }
+            .is-sub{
+                background-color: rgb(240, 240, 240);
+                color: black;
+            }
+
+            .input-box{
+                height: 30px;
+                width: 15%;
+            }
+
+            .calculate{
+                background-color: green;
+                height: 32px;
+                width: 80px;
+                border: 1px;
+                color: white;
+            }
+
+        </style>
     <h3>YouTube Subscribe Button</h3>
 
-    <button onclick="subscribe()" id="b" > Subscribe</button>
+    <button onclick="subscribe()" class="b" > Subscribe</button>
 
     <p>Amazon Shipping Calculator</p>
     <p>Order under $40 = +$10 shipping.</p>
@@ -37,11 +69,13 @@
         }
 
         function subscribe(){
-            const but=document.querySelector('#b');
+            const but=document.querySelector('.b');
             if(but.innerText==='Subscribe'){
                 but.innerText='Subscribed';
+                but.classList.add('is-sub')
             }else{
                 but.innerHTML='Subscribe';
+                but.classList.remove('is-sub');
             }
         }
 
