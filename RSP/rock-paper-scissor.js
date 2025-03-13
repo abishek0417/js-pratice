@@ -47,8 +47,8 @@ function usermove(move){
     updatestatus()
 
     document.querySelector('.moves').innerHTML=` you 
-<img src="img-src/${move}-emoji.png" class="move-icon">
-<img src="img-src/${computerMove}-emoji.png" class="move-icon">
+<img src="${move}-emoji.png" class="move-icon">
+<img src="${computerMove}-emoji.png" class="move-icon">
 computer`
 
 document.querySelector('.result').innerText=result
