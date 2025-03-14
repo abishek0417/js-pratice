@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .del-btn{
+            background-color: red;
+            color: white;
+            border: none;
+            
+        }
+        .add-btn{
+            background-color: green;
+            color: white;
+        }
+
+        .todo-grid,.todo-input-grid{
+            display: grid;
+            grid-template-columns: 200px 150px 100px;
+            column-gap: 20px;
+            row-gap: 20px;
+        }
+    </style>
+    <div class="todo-input-grid">
+        <input type="text" class="text-input" placeholder="To-do list" onkeydown="enter(event)">
+        <input type="date" class="js-date">
+        <button onclick="btnclk()" class="add-btn">Add</button>
+        <div class="js-todo todo-grid"></div>
+    </div>
+
+    <script>
+        let arr=[
+            {
+            name:'make dish',
+            date:'2024-3-22'
+            },
+            {
+                name:'wash dish',
+                date:'2024-3-22'
+            }]
+        render();
+
+        function render(){
+            let container=' '
+            for(let i=0;i<arr.length;i++){
+               const todo=arr[i];
+               const {name,date}=todo  //const name=todo.name  object shortcut destructing
+               //const {date}=todo //const duedate=todo.date
+                const html=
+                `<div>${name}</div>
+                <div> ${date}</div>
+                <button onclick="
+                arr.splice(${i},1);
+                render();
+                " class="del-btn">delete</button>`
+                container=container+html
+            }
+            console.log(container)
+            document.querySelector('.js-todo').innerHTML=container
+        }
+        
+        function enter(event){
+            if(event.key==="Enter"){
+                btnclk();
+            }
+        }
+        function btnclk(){
+           const taskInput= document.querySelector(".text-input");
+           const dateInput=document.querySelector(".js-date");
+           const name=taskInput.value;
+           const date=dateInput.value;
+           arr.push(
+            {
+              //  name:name,
+               // date:date insted of this we use just name and date once because both key and value are same name this is called shorthand property
+               name,
+               date
+            });
+           console.log(arr) 
+           render();
+
+           taskInput.value='';
+        }
+        
+
+    </script>
+    
+</body>
+</html>
