@@ -75,7 +75,7 @@ function pickComputermove(){
 let autoplay=false;
 let intervalid;
 function auto(){
-     const store_inner=document.querySelector('.auto-score')
+     /*const store_inner=document.querySelector('.auto-score')
      if(!autoplay){
         interval= setInterval(function(){
              store_inner.innerText='Stop Play'
@@ -88,5 +88,19 @@ function auto(){
         store_inner.innerText='Auto Play'
         clearInterval(interval)
         autoplay=false;
-         }   
- }
+         }   */
+        const store_inner=document.querySelector('.auto-score')
+        let val=store_inner.innerText;
+     if(val==='Auto Play'){
+        store_inner.innerText='Stop Play'
+        interval= setInterval(function(){
+             const playermove=pickComputermove();
+             usermove(playermove);
+         },1000)
+         autoplay=true;
+     }
+     else{
+        store_inner.innerText='Auto Play'
+        clearInterval(interval);
+    }
+}
