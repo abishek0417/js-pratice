@@ -71,3 +71,22 @@ function pickComputermove(){
     }
     return computerMove;
 }
+
+let autoplay=false;
+let intervalid;
+function auto(){
+     const store_inner=document.querySelector('.auto-score')
+     if(!autoplay){
+        interval= setInterval(function(){
+             store_inner.innerText='Stop Play'
+             const playermove=pickComputermove();
+             usermove(playermove);
+         },1000)
+         autoplay=true;
+     }
+     else{
+        store_inner.innerText='Auto Play'
+        clearInterval(interval)
+        autoplay=false;
+         }   
+ }

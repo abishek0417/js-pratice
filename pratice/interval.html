@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        setTimeout(function(){
+        console.log('timeout')  //this will run after the given seconds
+    },3000)
+
+    console.log('this print first') 
+
+    const interval = setInterval(function(){
+        console.log('this is run for every 2secs') 
+    },2000)
+
+    setTimeout(function(){
+        clearInterval(interval)  //this will clear a setinterval after a given sec
+    },10000)
+    </script>
+</body>
+</html>

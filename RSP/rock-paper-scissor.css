@@ -29,7 +29,7 @@ body{
 .status{
     margin-top: 50px;
 }
-.reset-score{
+.reset-score,.auto-score{
     width:120px ;
     padding:10px;
     border: none;
