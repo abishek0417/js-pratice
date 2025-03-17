@@ -8,22 +8,32 @@
 <body>
     <script>
         
+        /* const arr=[1,2,3,4,5]
+        arr.forEach(function(item){
+            console.log(item)
+            })
+        console.log('---------------------------------------------------------')
+        //arrow function
+        arr.forEach((item,index)=>{
+            console.log(item,index);
+            })
+                
+        const arr1=['apple','orange','grapes']
+        for(let x in arr1){
+            console.log(arr1[x])
+            }
+            console.log('-----------------------------------------------------')
+            for(let x1 of arr1){
+                console.log(x1)
+                }*/
         [
             'make food',
             'go to gym',
             'working'
-        ].forEach(function wel(value){ //here there is no use for function name wel we can also decleare function without name
-            console.log(value)
+        ].forEach(function (value,ind){ //here there is no use for function name wel we can also decleare function without name
+            if(value==='')
+            console.log(value,ind)
         });
-        const arr=[1,2,3,4,5]
-        arr.forEach(function(item){
-            console.log(item)
-        })
-
-        //arrow function
-        arr.forEach((item)=>{
-            console.log(item);
-        })
     </script>
 </body>
 </html>

@@ -46,19 +46,25 @@
 
         function render(){
             let container=' '
-            for(let i=0;i<arr.length;i++){
-               const todo=arr[i];
-               const {name,date}=todo  //const name=todo.name  object shortcut destructing
-               //const {date}=todo //const duedate=todo.date
+            
+            //for(let i=0;i<arr.length;i++){
+             //  const todo=arr[i];
+             //const {date}=todo //const duedate=todo.date
+            
+            arr.forEach((value,index)=>{   //foreach  => arrowfunction dont need function keyword
+              //  const name=value.name;
+               // const date=value.date;
+                const {name,date}=value  //const name=todo.name  object shortcut destructing
                 const html=
-                `<div>${name}</div>
-                <div> ${date}</div>
-                <button onclick="
-                arr.splice(${i},1);
-                render();
-                " class="del-btn">delete</button>`
-                container=container+html
-            }
+                   `<div>${name}</div>
+                   <div> ${date}</div>
+                   <button onclick="
+                   arr.splice(${index},1);
+                   render();
+                   " class="del-btn">delete</button>`
+                   container=container+html
+
+            })
             console.log(container)
             document.querySelector('.js-todo').innerHTML=container
         }

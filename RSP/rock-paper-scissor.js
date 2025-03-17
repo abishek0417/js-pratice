@@ -1,8 +1,35 @@
 
+document.querySelector('.js-rock-btn')
+.addEventListener('click',()=>{
+    usermove('rock');
+})
 
-const score=JSON.parse(localStorage.getItem('score')) || {win:0,lose:0,tie:0}
+document.querySelector('.js-scissores-btn')
+.addEventListener('click',()=>{
+    usermove('scissores')
+})
+
+document.querySelector('.js-paper-btn')
+.addEventListener('click',()=>{
+    usermove('paper')
+})
+
+document.body.addEventListener('keydown',(event)=>{
+    if(event.key==='r'){
+        usermove('rock')
+    }else if(event.key==='p'){
+        usermove('paper')
+    }else if(event.key==='s'){
+        usermove('scissores')
+    }
+})
+
+
+
+const score=JSON.parse(localStorage.getItem('score')) || {win:0,lose:0,tie:0,count:0}
 updatestatus()
 function usermove(move){
+    score.count+=1;
 
     const computerMove=pickComputermove();
     let result='';
@@ -56,7 +83,7 @@ document.querySelector('.result').innerText=result
 }
 
 function updatestatus(){
-    document.querySelector('.status').innerText=`win : ${score.win}, lose : ${score.lose}, tie : ${score.tie}`
+    document.querySelector('.status').innerText=`win : ${score.win}, lose : ${score.lose}, tie : ${score.tie}, count : ${score.count}`
 }
 
 function pickComputermove(){
@@ -93,7 +120,7 @@ function auto(){
         let val=store_inner.innerText;
      if(val==='Auto Play'){
         store_inner.innerText='Stop Play'
-        interval= setInterval(function(){
+        interval= setInterval(()=> {
              const playermove=pickComputermove();
              usermove(playermove);
          },1000)

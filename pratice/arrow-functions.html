@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="" class="js-button">click</button>
+    <script>
+        /*const arrowfunction = (param) =>{  //insted of using function keyword we can only use bracket and arrow
+            console.log('hello'+25)
+        }
+        arrowfunction(25)
+
+        //online arrow function
+
+        const oneline= () => 2+3   //here dont need to use return and { }
+        console.log(oneline())*/
+        const buttonElement = document.querySelector('.js-button');
+
+        buttonElement.addEventListener('click',()=>{
+        console.log('click');
+    })
+        
+        buttonElement.addEventListener('click',()=>{
+        console.log('click2');
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="js-button">click</button>
+    <script>
+
+        const buttonElement = document.querySelector('.js-button');
+
+        const eventListener=()=>{
+            console.log('click')
+        }
+        buttonElement.addEventListener('click',eventListener)
+
+     //  buttonElement.removeEventListener('click',eventListener)
+
+        buttonElement.addEventListener('click',()=>{
+        console.log('click2');
+        })
+    </script>
+</body>
+</html>
